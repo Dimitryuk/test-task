@@ -1,34 +1,40 @@
-import phaserJuice from "../../phaser3-juice-plugin/dist/phaserJuice";
+import phaserJuice from "../../../phaser3-juice-plugin/dist/phaserJuice";
 import Phaser from "phaser";
-// import Hand from "../ui/handFunction";
 
-export default class DressingScreen1 extends Phaser.Scene {
+export default class DressingScreen4_5 extends Phaser.Scene {
   constructor() {
-    super("dressingScreen1");
+    super("dressingScreen4_5");
   }
 
   preload() {
     this.load.image("room", "assets/room.webp");
-    this.load.image("overlay", "assets/overlay.webp");
-    this.load.image("girl_main", "assets/girl_main.webp");
-    this.load.image("progressBar", "assets/progressbar_start.webp");
-    this.load.image("pinkDress", "assets/pink_dress.webp");
-    this.load.image("shorts", "assets/shorts.webp");
+
+    this.load.image(
+      "girl_shorts_blue_handbag_glasses",
+      "assets/girl_shorts_blue_handbag_glasses.webp"
+    );
+    this.load.image("progressBar_4", "assets/progress_bar_4.webp");
+
     this.load.image("rectangle", "assets/rectangle.webp");
     this.load.image("hand", "assets/hand.webp");
+    this.load.image("beach", "assets/beach_icon.webp");
+    this.load.image("terrace", "assets/terrace_icon.webp");
   }
 
   create() {
     var juice = new phaserJuice(this);
     this.room = this.add.image(300, 450, "room");
-    this.overlay = this.add.image(300, 450, "overlay");
-    this.girl = this.add.image(300, 500, "girl_main").setScale(1.1);
-    this.progressBar = this.add.image(300, 40, "progressBar");
+
+    this.girl = this.add
+      .image(300, 500, "girl_shorts_blue_handbag_glasses")
+      .setScale(1.1);
+    this.progressBar_4 = this.add.image(300, 40, "progressBar_4");
 
     this.rectangle = this.add.image(150, 700, "rectangle").setScale(0.85);
     this.rectangle1 = this.add.image(450, 700, "rectangle").setScale(0.85);
-    this.pinkDress = this.add.image(150, 700, "pinkDress");
-    this.shorts = this.add.image(450, 700, "shorts");
+
+    this.glasses = this.add.image(150, 700, "beach");
+    this.choker = this.add.image(450, 700, "terrace");
     this.hand = this.add.image(500, 700, "hand");
     this.tweens.add({
       targets: this.hand,
@@ -44,17 +50,15 @@ export default class DressingScreen1 extends Phaser.Scene {
     });
     juice.pulse(this.rectangle);
     juice.pulse(this.rectangle1);
-
     this.rectangle.setInteractive();
     this.rectangle.on("pointerdown", () => {
-      this.scene.start("dressingScreen2_1");
+      this.scene.start("finalScene9");
     });
 
     this.rectangle1.setInteractive();
     this.rectangle1.on("pointerdown", () => {
-      this.scene.start("dressingScreen2_2");
+      this.scene.start("finalScene10");
     });
   }
-
   update() {}
 }

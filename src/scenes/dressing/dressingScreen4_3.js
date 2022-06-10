@@ -1,17 +1,17 @@
-import phaserJuice from "../../phaser3-juice-plugin/dist/phaserJuice";
+import phaserJuice from "../../../phaser3-juice-plugin/dist/phaserJuice";
 import Phaser from "phaser";
 
-export default class DressingScreen4_8 extends Phaser.Scene {
+export default class DressingScreen4_3 extends Phaser.Scene {
   constructor() {
-    super("dressingScreen4_8");
+    super("dressingScreen4_3");
   }
 
   preload() {
     this.load.image("room", "assets/room.webp");
 
     this.load.image(
-      "girl_shorts_brown_handbag_neckchain",
-      "assets/girl_shorts_brown_handbag_neckchain.webp"
+      "girl_pink_dress_brown_handbag_glasses",
+      "assets/girl_pink_dress_brown_handbag_glasses.webp"
     );
     this.load.image("progressBar_4", "assets/progress_bar_4.webp");
 
@@ -26,7 +26,7 @@ export default class DressingScreen4_8 extends Phaser.Scene {
     this.room = this.add.image(300, 450, "room");
 
     this.girl = this.add
-      .image(300, 500, "girl_shorts_brown_handbag_neckchain")
+      .image(300, 500, "girl_pink_dress_brown_handbag_glasses")
       .setScale(1.1);
     this.progressBar_4 = this.add.image(300, 40, "progressBar_4");
 
@@ -52,12 +52,12 @@ export default class DressingScreen4_8 extends Phaser.Scene {
     juice.pulse(this.rectangle1);
     this.rectangle.setInteractive();
     this.rectangle.on("pointerdown", () => {
-      this.scene.start("finalScene15");
+      this.scene.start("finalScene5");
     });
 
     this.rectangle1.setInteractive();
     this.rectangle1.on("pointerdown", () => {
-      this.scene.start("finalScene16");
+      this.scene.start("finalScene6");
     });
   }
   update() {}

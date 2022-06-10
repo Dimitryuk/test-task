@@ -1,39 +1,34 @@
-import phaserJuice from "../../phaser3-juice-plugin/dist/phaserJuice";
+import phaserJuice from "../../../phaser3-juice-plugin/dist/phaserJuice";
 import Phaser from "phaser";
+// import Hand from "../ui/handFunction";
 
-export default class DressingScreen3_2 extends Phaser.Scene {
+export default class DressingScreen1 extends Phaser.Scene {
   constructor() {
-    super("dressingScreen3_2");
+    super("dressingScreen1");
   }
 
   preload() {
     this.load.image("room", "assets/room.webp");
-
-    this.load.image(
-      "girl_pink_dress_brown_handbag",
-      "assets/girl_pink_dress_brown_handbag.webp"
-    );
-    this.load.image("progressBar_3", "assets/progress_bar_3.webp");
+    this.load.image("overlay", "assets/overlay.webp");
+    this.load.image("girl_main", "assets/girl_main.webp");
+    this.load.image("progressBar", "assets/progressbar_start.webp");
+    this.load.image("pinkDress", "assets/pink_dress.webp");
+    this.load.image("shorts", "assets/shorts.webp");
     this.load.image("rectangle", "assets/rectangle.webp");
     this.load.image("hand", "assets/hand.webp");
-    this.load.image("choker", "assets/choker.webp");
-    this.load.image("glasses", "assets/glasses.webp");
   }
 
   create() {
     var juice = new phaserJuice(this);
     this.room = this.add.image(300, 450, "room");
-
-    this.girl = this.add
-      .image(300, 500, "girl_pink_dress_brown_handbag")
-      .setScale(1.1);
-    this.progressBar_3 = this.add.image(300, 40, "progressBar_3");
+    this.overlay = this.add.image(300, 450, "overlay");
+    this.girl = this.add.image(300, 500, "girl_main").setScale(1.1);
+    this.progressBar = this.add.image(300, 40, "progressBar");
 
     this.rectangle = this.add.image(150, 700, "rectangle").setScale(0.85);
     this.rectangle1 = this.add.image(450, 700, "rectangle").setScale(0.85);
-
-    this.glasses = this.add.image(150, 700, "glasses");
-    this.choker = this.add.image(450, 700, "choker");
+    this.pinkDress = this.add.image(150, 700, "pinkDress");
+    this.shorts = this.add.image(450, 700, "shorts");
     this.hand = this.add.image(500, 700, "hand");
     this.tweens.add({
       targets: this.hand,
@@ -52,13 +47,14 @@ export default class DressingScreen3_2 extends Phaser.Scene {
 
     this.rectangle.setInteractive();
     this.rectangle.on("pointerdown", () => {
-      this.scene.start("dressingScreen4_3");
+      this.scene.start("dressingScreen2_1");
     });
 
     this.rectangle1.setInteractive();
     this.rectangle1.on("pointerdown", () => {
-      this.scene.start("dressingScreen4_4");
+      this.scene.start("dressingScreen2_2");
     });
   }
+
   update() {}
 }

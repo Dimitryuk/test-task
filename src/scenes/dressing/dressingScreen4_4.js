@@ -1,4 +1,4 @@
-import phaserJuice from "../../phaser3-juice-plugin/dist/phaserJuice";
+import phaserJuice from "../../../phaser3-juice-plugin/dist/phaserJuice";
 import Phaser from "phaser";
 
 export default class DressingScreen4_4 extends Phaser.Scene {
